@@ -36,16 +36,16 @@ resource "oci_load_balancer_backend" web-server-01 {
   port             = "80"
   weight           = "1"
 }
-# resource "oci_load_balancer_backend" web-server-02 {
-#   backendset_name  = oci_load_balancer_backend_set.web-servers-backend.name
-#   backup           = "false"
-#   drain            = "false"
-#   load_balancer_id = oci_load_balancer.Load_Balancer.id
-#   ip_address       = oci_core_instance.web-02.private_ip
-#   offline          = "false"
-#   port             = "80"
-#   weight           = "1"
-# }
+resource "oci_load_balancer_backend" web-server-02 {
+  backendset_name  = oci_load_balancer_backend_set.web-servers-backend.name
+  backup           = "false"
+  drain            = "false"
+  load_balancer_id = oci_load_balancer.Load_Balancer.id
+  ip_address       = oci_core_instance.web-02.private_ip
+  offline          = "false"
+  port             = "80"
+  weight           = "1"
+}
 resource "oci_load_balancer_listener" lb-listeners {
   connection_configuration {
     backend_tcp_proxy_protocol_version = "0"

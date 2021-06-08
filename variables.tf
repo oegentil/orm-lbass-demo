@@ -28,7 +28,7 @@ variable "dns_label" {
 # OS Image
 
 variable "image_operating_system" {
-  default = "CentOS"
+  default = "Oracle Linux"
 }
 variable "image_operating_system_version" {
   default = "8"

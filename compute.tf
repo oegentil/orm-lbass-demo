@@ -21,11 +21,10 @@ resource "oci_core_instance" "web-01" {
 
   metadata = {
     ssh_authorized_keys = var.ssh_public_key
-    user_data_base64 = data.template_file.user_data.rendered
+    user_data = base64encode(data.template_file.user_data.rendered)
   }
 
 }
-
 
 #  resource "oci_core_instance" "web-02" {
 #    availability_domain = data.oci_identity_availability_domains.ADs.availability_domains[var.AD -1]["name"]
@@ -45,7 +44,7 @@ resource "oci_core_instance" "web-01" {
  
 #    metadata = {
 #      ssh_authorized_keys = var.ssh_public_key
-#      user_data_base64 = data.template_file.user_data.rendered
+#      user_data = base64encode(data.template_file.user_data.rendered)
 #    }
  
 #  }
